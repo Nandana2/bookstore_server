@@ -1,0 +1,33 @@
+const mongoose=require('mongoose')
+
+const userSchema=new mongoose.Schema({
+    username:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        unique:true,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    bio:{
+        type:String,
+        default:"I'm A BookStore User"
+    },
+    profile:{
+        type:String,
+        default:""
+    },
+    role:{
+        type:String,
+        default:"User"
+    }
+})
+
+const users=mongoose.model('users',userSchema)
+
+module.exports=users
